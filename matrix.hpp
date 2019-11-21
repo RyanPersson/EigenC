@@ -9,6 +9,7 @@
 #include <vector>
 #include <iostream>
 #include <string>
+#include <iostream> //Only needed for print_martix
 
 template <typename T>
 class Matrix
@@ -18,11 +19,11 @@ private:
     int height, width;
 
 public:
-    Matrix(int height, int width);
+    Matrix(int height=0, int width=0);
     ~Matrix();
-    void print_Matrix();
-    std::string to_String();
-    T *at(int row, int col);
+    void print_matrix();
+    std::string matrix_to_string();
+    T at(int row, int col);
     int size() { return (this->width) * (this->height); };
     void add(T value, int row, int col);
     void get(int row, int col);
@@ -48,7 +49,7 @@ Matrix<T>::Matrix(int height, int width) : height(height), width(width)
         std::vector<T> row;
         for (int j = 0; j < this->width; j++)
         {
-            row.push_back(T);
+            row.push_back(0);
         }
         this->data.push_back(row);
     }
@@ -63,15 +64,15 @@ Matrix<T>::~Matrix()
 
 /* */
 template <class T>
-void Matrix<T>::print_Matrix() 
+void Matrix<T>::print_matrix() 
 {
-    print(this->to_String());
+    std::cout << this->matrix_to_string() << std::endl;
     return;
 }
 
 /*returns matrix as string*/
 template <class T>
-std::string Matrix<T>::to_String()
+std::string Matrix<T>::matrix_to_string()
 {
     std::string m_string = "";
     for (int i = 0; i < this->height; i++)
@@ -80,7 +81,9 @@ std::string Matrix<T>::to_String()
         m_string += "\n[";
         for (int j = 0; j < this->width; j++)
         {
-            m_string += to_String(this->data[i][j]);
+            m_string += " ";
+            m_string += std::to_string(this->data[i][j]);
+            m_string += " ";
         }
         m_string += "]";
     }
@@ -89,13 +92,13 @@ std::string Matrix<T>::to_String()
 
 /*Returns T* at [row][col]*/
 template <class T>
-T *Matrix<T>::at(int row, int col)
+T Matrix<T>::at(int row, int col)
 {
     if(this->check_size(row, col)){
         return this->data[row][col];
     }
     else
-        throw out_of_bounds;
+        std::cout << "\ntried to access out of bounds el." << std::endl;
     return NULL;
     
 }
@@ -108,7 +111,7 @@ void Matrix<T>::add(T value, int row, int col)
         this->data[row][col] = value;
     }
     else 
-        throw out_of_bounds;
+        std::cout << "\nTried to access out of bounds el." << std::endl;
     return;
 }
    
@@ -121,10 +124,10 @@ bool Matrix<T>::check_size(int row, int col) {
         return true;
 }
 
-/* */
-template <class T>
-void Matrix<T>::()
-{
-}
+// /* */
+// template <class T>
+// void Matrix<T>::()
+// {
+// }
 
 #endif
