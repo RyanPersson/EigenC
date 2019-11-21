@@ -8,23 +8,27 @@
 
 #include <vector>
 #include <iostream>
+#include <string>
 
+template <typename T>
+class Matrix
+{
+private:
+    std::vector<std::vector<T>> data;
+    int height, width;
 
-template<typename T>
-class Matrix {
-    private: 
-        std::vector<std::vector<T> > data;
-        int height, width;
-    public:
-        Matrix(int height, int width);
-        ~Matrix();
-        void print_Matrix();
-        T* at(int row, int col);
-        int size() {return (this->width)*(this->height); };
-        void add(T value, int row, int col);
-        void get(int row, int col);
-        bool check_size(int row, int col); //Figure out exception handling
-        /* TODO 
+public:
+    Matrix(int height, int width);
+    ~Matrix();
+    void print_Matrix();
+    std::string to_String();
+    T *at(int row, int col);
+    int size() { return (this->width) * (this->height); };
+    void add(T value, int row, int col);
+    void get(int row, int col);
+    //TODO
+    bool check_size(int row, int col); //Figure out exception handling
+                                       /* TODO 
         Matrix<T> multiply(Matrix<T> left, Matrix<T> right);
         Matrix<T> add(Matrix<T> left, Matrix<T> right);
         Matrix<T> invert(Matrix<T> input);
@@ -37,10 +41,13 @@ class Matrix {
 
 /*Creates a new 2d vector Matrix*/
 template <class T>
-Matrix<T>::Matrix(int height, int width): height(height), width(width) {
-    for(int i = 0; i < this->height; i++) {
+Matrix<T>::Matrix(int height, int width) : height(height), width(width)
+{
+    for (int i = 0; i < this->height; i++)
+    {
         std::vector<T> row;
-        for(int j = 0; j < this->width; j++) {
+        for (int j = 0; j < this->width; j++)
+        {
             row.push_back(T);
         }
         this->data.push_back(row);
@@ -49,37 +56,75 @@ Matrix<T>::Matrix(int height, int width): height(height), width(width) {
 
 /*Destroys matrix*/
 template <class T>
-Matrix<T>::~Matrix() {
+Matrix<T>::~Matrix()
+{
     /*Assume T class handles it's own destruction.*/
-}
-
-/*prints the Matrix*/
-template <class T>
-void Matrix<T>::print_Matrix(){
-
-}
-
-/*Returns T* at [row][col]*/
-template <class T>
-T* Matrix<T>::at(int row, int col) {
-    this->check_size(row,col);
-    return this->data[row][col];
-}
-
-/* sets the element at [row][col] */
-template <class T>
-void Matrix<T>::add(T value, int row, int col) {
-    this->check_size(row,col);
-    this->data[row][col] = value;
 }
 
 /* */
 template <class T>
-void Matrix<T>::() {
-
+void Matrix<T>::print_Matrix() 
+{
+    print(this->to_String());
+    return;
 }
 
+/*returns matrix as string*/
+template <class T>
+std::string Matrix<T>::to_String()
+{
+    std::string m_string = "";
+    for (int i = 0; i < this->height; i++)
+    {
+        std::vector<T> row;
+        m_string += "\n[";
+        for (int j = 0; j < this->width; j++)
+        {
+            m_string += to_String(this->data[i][j]);
+        }
+        m_string += "]";
+    }
+    return m_string;
+}
 
+/*Returns T* at [row][col]*/
+template <class T>
+T *Matrix<T>::at(int row, int col)
+{
+    if(this->check_size(row, col)){
+        return this->data[row][col];
+    }
+    else
+        throw out_of_bounds;
+    return NULL;
+    
+}
 
+/* sets the element at [row][col] */
+template <class T>
+void Matrix<T>::add(T value, int row, int col)
+{
+    if(this->check_size(row, col)) {
+        this->data[row][col] = value;
+    }
+    else 
+        throw out_of_bounds;
+    return;
+}
+   
+/*Checks if matrix size is correct*/
+template <class T>
+bool Matrix<T>::check_size(int row, int col) {
+    if(row >= this->height || col >= this->width)
+        return false;
+    else
+        return true;
+}
+
+/* */
+template <class T>
+void Matrix<T>::()
+{
+}
 
 #endif
