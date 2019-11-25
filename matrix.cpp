@@ -30,7 +30,7 @@ Matrix::~Matrix()
     /*vector objects handle their own destruction*/
 }
 
-/* */
+/*prints a matrix */
 void Matrix::print_matrix() 
 {
     std::cout << this->matrix_to_string() << std::endl;
@@ -68,7 +68,7 @@ int Matrix::at(int row, int col)
 }
 
 /* sets the element at [row][col] */
-void Matrix::add(int value, int row, int col)
+void Matrix::insert(int value, int row, int col)
 {
     if(this->check_size(row, col)) {
         this->data[row][col] = value;
@@ -85,6 +85,65 @@ bool Matrix::check_size(int row, int col) {
     else
         return true;
 }
+
+/*Checks dimensions are suitable for operation*/
+bool check_dimensions(int option, Matrix left, Matrix right) {
+    switch(option) {
+        case 1: //multiply
+            return true;
+            break;
+        case 2: //add
+            if(left.get_width()==right.get_width() 
+            && left.get_height()==right.get_height()) 
+                return true;
+            else
+                return false;
+            break;
+        case 3: //is square
+            return true;
+            break;
+        default: //No option specified
+            std::cout << "No option specified." << std::endl;
+            return false;
+    }
+}
+
+/*Multiplies two matrices together */
+Matrix multiply(Matrix left, Matrix right) {
+    if(check_dimensions(1, left, right)) {
+    
+    }
+    else
+    {
+        std::cout << "Mismatchted sizes" << std::endl;
+        return 0;
+    }
+}
+
+/*Adds two matrices together*/
+Matrix add_matrices(Matrix left, Matrix right) {
+    if(check_dimensions(2,left,right)) {
+        Matrix new_matrix(left.get_height(), left.get_width());
+        int height = new_matrix.get_height();
+        int width = new_matrix.get_width();
+        for(int i = 0; i < height; i++) {
+            for(int j = 0; j < width; j++) {
+                int toAdd = left.at(i,j) + right.at(i,j);
+                new_matrix.insert(toAdd,i,j);
+            }
+        }
+        return new_matrix;
+    }
+    else
+      {
+        std::cout << "Mismatchted sizes" << std::endl;
+        return 0;
+    }
+}
+
+
+
+
 
 // /* */
 // void Matrix::()
