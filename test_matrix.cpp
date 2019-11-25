@@ -22,9 +22,5 @@ int main() {
     }
     test.print_matrix();
 
-    
-
-
-
     return 0;
 }

@@ -1,7 +1,7 @@
 /*******************************************************************************************************************************************************************************
  ** Program: matrix.cpp 
  ** Author: Ryan Persson
- ** Date Created: 11/16/2019
+ ** Date Created: 11/25/2019
 *******************************************************************************************************************************************************************************/
 #include <vector>
 #include <iostream>
@@ -27,7 +27,7 @@ Matrix::Matrix(int height, int width) : height(height), width(width)
 /*Destroys matrix*/
 Matrix::~Matrix()
 {
-    /*Assume T class handles it's own destruction.*/
+    /*vector objects handle their own destruction*/
 }
 
 /* */
