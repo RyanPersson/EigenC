@@ -8,7 +8,7 @@
 
 int main() {
     
-    Matrix test(2,3);
+    Matrix<float> test(2,3);
 
 
     test.add(5,1,2);
