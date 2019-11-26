@@ -24,9 +24,25 @@ int main() {
     Matrix newM = add_matrices(test, test);
     newM.print_matrix();
 
-    //add_matrices(test, zeroes);
+    Matrix left(4,7);
+    for(int i = 0; i < 4; i++) {
+        for(int j = 0; j < 7; j++) {
+            left.insert(i*j,i,j);
+        }
+    }
+    left.print_matrix();
+    Matrix right(7,4);
 
-    //sum.print_matrix();
+    for(int i = 0; i < 7; i++) {
+        for(int j = 0; j < 4; j++) {
+            right.insert(i*j + 5,i,j);
+        }
+    }
+    right.print_matrix();
+
+    Matrix mult = multiply(left, right);
+
+    mult.print_matrix();
 
     return 0;
 }

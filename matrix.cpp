@@ -111,7 +111,21 @@ bool check_dimensions(int option, Matrix left, Matrix right) {
 /*Multiplies two matrices together */
 Matrix multiply(Matrix left, Matrix right) {
     if(check_dimensions(1, left, right)) {
-    
+        int left_height = left.get_height();
+        int left_width = left.get_width();
+        int right_height = right.get_height();
+        int right_width = right.get_width();
+        Matrix new_matrix(left_height, right_width);
+        for(int i = 0; i < left_height; i++) {
+            for(int j = 0; j < right_width; j++) {
+                for(int k = 0; k < left_width; k++) {
+                    int new_num = left.at(i,k) * right.at(k,j);
+                    new_matrix.insert(new_num,i,j);
+                }
+
+            }
+        }
+        return new_matrix;
     }
     else
     {
