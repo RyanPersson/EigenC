@@ -86,11 +86,32 @@ bool Matrix::check_size(int row, int col) {
         return true;
 }
 
+/*TODO*/
+/*Finds the determinant of a matrix*/
+float determinant(Matrix input) {
+
+}
+
+
+/*Inverts a matrix*/
+Matrix invert(Matrix input) {
+    if(!check_dimensions(3, input)) {
+        std::cout << "The matrix is not square and cannot be inverted." << std::endl;
+        return;
+    }
+
+
+    std::cout << "Worked";
+}
+
 /*Checks dimensions are suitable for operation*/
-bool check_dimensions(int option, Matrix left, Matrix right) {
+bool check_dimensions(int option, Matrix left, Matrix right) { //choose an int option based on what you are trying to do with the matrix.
     switch(option) {
         case 1: //multiply
-            return true;
+            if(left.get_width()==right.get_height()) 
+                return true;
+            else
+                return false;
             break;
         case 2: //add
             if(left.get_width()==right.get_width() 
@@ -100,7 +121,10 @@ bool check_dimensions(int option, Matrix left, Matrix right) {
                 return false;
             break;
         case 3: //is square
-            return true;
+            if(left.get_width()==left.get_height()) 
+                return true;
+            else
+                return false;
             break;
         default: //No option specified
             std::cout << "No option specified." << std::endl;
@@ -127,7 +151,7 @@ Matrix multiply(Matrix left, Matrix right) {
         }
         return new_matrix;
     }
-    else
+    else //If matrix indeces don't match up.
     {
         std::cout << "Mismatchted sizes" << std::endl;
         return 0;

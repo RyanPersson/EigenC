@@ -31,7 +31,7 @@ public:
    
     
         /* TODO 
-        Matrix invert(Matrix input);
+        
         int[] eigenvalues();
         float determinant();
         std::vector<int> row(int row);
@@ -40,8 +40,13 @@ public:
 };
 
 /*Non member functions*/
-bool check_dimensions(int option, Matrix left, Matrix right); 
+
+//Default arg of Matrix right is set to zero so that function can be called with option 3 to check if a single matrix left is square. 
+bool check_dimensions(int option, Matrix left, Matrix right=0);
 Matrix multiply(Matrix left, Matrix right);    
 Matrix add_matrices(Matrix left, Matrix right);
+Matrix invert(Matrix input);
+float determinant(Matrix input);
+
 
 #endif

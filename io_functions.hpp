@@ -1,11 +1,11 @@
 /****************************************************************************************************************************************************************************** 
- ** Program FileName: template_functions.hpp
+ ** Program FileName: io_functions.hpp
  ** Author: Ryan Persson
  ** Date Created: 1/31/2019
- ** Description: Interface for template_functions.cpp (Default user I/O functions to use in c++ projects.)
+ ** Description: Interface for io_functions.cpp (Default user I/O functions to use in c++ projects.)
 ******************************************************************************************************************************************************************************/
-#ifndef __TEMPLATE_FUNCTIONS_HPP
-#define __TEMPLATE_FUNCTIONS_HPP
+#ifndef __IO_FUNCTIONS_HPP
+#define __IO_FUNCTIONS_HPP
 
 
 
