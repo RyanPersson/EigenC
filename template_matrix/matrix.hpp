@@ -21,8 +21,8 @@ private:
 public:
     Matrix(int height=0, int width=0);
     ~Matrix();
-    void print_matrix();
-    std::string matrix_to_string();
+    void print_matrix() const;
+    std::string matrix_to_string() const;
     T at(int row, int col);
     int size() { return (this->width) * (this->height); };
     void add(T value, int row, int col);
@@ -62,9 +62,9 @@ Matrix<T>::~Matrix()
     /*Assume T class handles it's own destruction.*/
 }
 
-/* */
+/* Prints matrix */
 template <class T>
-void Matrix<T>::print_matrix() 
+void Matrix<T>::print_matrix() const
 {
     std::cout << this->matrix_to_string() << std::endl;
     return;
@@ -72,7 +72,7 @@ void Matrix<T>::print_matrix()
 
 /*returns matrix as string*/
 template <class T>
-std::string Matrix<T>::matrix_to_string()
+std::string Matrix<T>::matrix_to_string() const
 {
     std::string m_string = "";
     for (int i = 0; i < this->height; i++)

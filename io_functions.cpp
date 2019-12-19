@@ -2,7 +2,7 @@
  ** Program FileName: io_functions.cpp
  ** Author: Ryan Persson
  ** Date Created: 1/31/2019
- ** Description: Default user I/O functions. goes with template_functions.hpp interface
+ ** Description: Default user I/O functions. goes with io_functions.hpp interface
 ******************************************************************************************************************************************************************************/
 
 #include <iostream>

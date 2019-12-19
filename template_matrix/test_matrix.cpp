@@ -3,7 +3,6 @@
 #include <string>
 
 #include "matrix.hpp"
-#include "template_functions.hpp"
 
 
 int main() {

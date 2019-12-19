@@ -4,6 +4,7 @@
 ###################
 *.o
 a.out
+test_matrix
 
 # VScode stuff #
 ################
