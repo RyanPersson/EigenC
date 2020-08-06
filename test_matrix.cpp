@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 
-#include "functions.hpp"
+#include "io_functions.hpp"
 #include "matrix.hpp"
 
 int main() {
