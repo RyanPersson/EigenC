@@ -4,7 +4,6 @@
  ** Date Created: 11/25/2019
 *******************************************************************************************************************************************************************************/
 #include <vector>
-#include <iostream>
 #include <string>
 #include <iostream> //Only needed for print_matrix
 
@@ -104,6 +103,7 @@ bool Matrix::check_size(int row, int col) {
 //     std::cout << "Worked";
 // }
 
+/*TODO break this function up into three options.*/
 /*Checks dimensions are suitable for operation*/
 bool check_dimensions(int option, Matrix left, Matrix right) { //choose an int option based on what you are trying to do with the matrix.
     switch(option) {
@@ -151,7 +151,7 @@ Matrix multiply(Matrix left, Matrix right) {
         }
         return new_matrix;
     }
-    else //If matrix indeces don't match up.
+    else //If matrix indices don't match up.
     {
         std::cout << "Mismatchted sizes" << std::endl;
         return 0;

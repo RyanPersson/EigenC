@@ -7,7 +7,6 @@
 #define _MATRIX_HPP
 
 #include <vector>
-#include <iostream>
 #include <string>
 #include <iostream> //only needed for print_matrix
 
