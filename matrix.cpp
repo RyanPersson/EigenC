@@ -76,7 +76,15 @@ void Matrix::insert(int value, int row, int col)
         std::cout << "\nTried to access out of bounds el." << std::endl;
     return;
 }
-   
+
+void Matrix::fill(int value) {
+    for(int i = 0;i < this->get_height(); i++) {
+        for(int j = 0; j < this->get_width(); j++) {
+            this->insert(value, i, j);
+        }
+    }
+}
+
 /*Checks if matrix size is correct*/
 bool Matrix::check_size(int row, int col) {
     if(row >= this->height || col >= this->width)
@@ -84,24 +92,6 @@ bool Matrix::check_size(int row, int col) {
     else
         return true;
 }
-
-/*TODO*/
-/*Finds the determinant of a matrix*/
-// float determinant(Matrix input) {
-
-// }
-
-/*TODO*/
-// /*Inverts a matrix*/
-// Matrix invert(Matrix input) {
-//     if(!check_dimensions(3, input)) {
-//         std::cout << "The matrix is not square and cannot be inverted." << std::endl;
-//         return;
-//     }
-
-
-//     std::cout << "Worked";
-// }
 
 /*TODO break this function up into three options.*/
 /*Checks dimensions are suitable for operation*/
@@ -142,11 +132,11 @@ Matrix multiply(Matrix left, Matrix right) {
         Matrix new_matrix(left_height, right_width);
         for(int i = 0; i < left_height; i++) {
             for(int j = 0; j < right_width; j++) {
+                int new_num = 0;
                 for(int k = 0; k < left_width; k++) {
-                    int new_num = left.at(i,k) * right.at(k,j);
-                    new_matrix.insert(new_num,i,j);
+                    new_num += left.at(i,k) * right.at(k,j);
                 }
-
+                new_matrix.insert(new_num,i,j);
             }
         }
         return new_matrix;
@@ -180,7 +170,23 @@ Matrix add_matrices(Matrix left, Matrix right) {
 }
 
 
+/*TODO*/
+/*Finds the determinant of a matrix*/
+// float determinant(Matrix input) {
 
+// }
+
+/*TODO*/
+// /*Inverts a matrix*/
+// Matrix invert(Matrix input) {
+//     if(!check_dimensions(3, input)) {
+//         std::cout << "The matrix is not square and cannot be inverted." << std::endl;
+//         return;
+//     }
+
+
+//     std::cout << "Worked";
+// }
 
 
 // /* */

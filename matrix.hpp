@@ -12,7 +12,7 @@
 
 class Matrix
 {
-private:
+protected:
     std::vector<std::vector<int>> data;
     int height, width;
 
@@ -27,7 +27,7 @@ public:
     int size() { return (this->width) * (this->height); };
     void insert(int value, int row, int col);
     bool check_size(int row, int col); //Figure out exception handling
-   
+    void fill(int value); //Fills a matrix with value.
     
         /* TODO 
         
