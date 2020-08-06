@@ -45,8 +45,8 @@ public:
 bool check_dimensions(int option, Matrix left, Matrix right=0);
 Matrix multiply(Matrix left, Matrix right);    
 Matrix add_matrices(Matrix left, Matrix right);
-Matrix invert(Matrix input);
-float determinant(Matrix input);
+//Matrix invert(Matrix input);
+//float determinant(Matrix input);
 
 
 #endif

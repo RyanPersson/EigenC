@@ -88,21 +88,21 @@ bool Matrix::check_size(int row, int col) {
 
 /*TODO*/
 /*Finds the determinant of a matrix*/
-float determinant(Matrix input) {
+// float determinant(Matrix input) {
 
-}
+// }
+
+/*TODO*/
+// /*Inverts a matrix*/
+// Matrix invert(Matrix input) {
+//     if(!check_dimensions(3, input)) {
+//         std::cout << "The matrix is not square and cannot be inverted." << std::endl;
+//         return;
+//     }
 
 
-/*Inverts a matrix*/
-Matrix invert(Matrix input) {
-    if(!check_dimensions(3, input)) {
-        std::cout << "The matrix is not square and cannot be inverted." << std::endl;
-        return;
-    }
-
-
-    std::cout << "Worked";
-}
+//     std::cout << "Worked";
+// }
 
 /*Checks dimensions are suitable for operation*/
 bool check_dimensions(int option, Matrix left, Matrix right) { //choose an int option based on what you are trying to do with the matrix.
